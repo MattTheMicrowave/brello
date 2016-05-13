@@ -7,5 +7,20 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <!-- Here's where we'll add a new task -->
+       <form method="POST" action="/tasks">
+         <input type="text" name="task">
+         <input type="submit" value="Submit">
+       </form>
+
+    <ul>
+
+
+      <% for(idx in tasks) { %>
+        <li><%= tasks[idx]['text'] %></li>
+        <% } %>
+
+    </ul>
   </body>
 </html>
