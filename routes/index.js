@@ -15,8 +15,13 @@ router.get('/', function(req, res, next) {
 
 /* POST Create a task. */
 router.post('/tasks', function(req, res, next) {
-tasks.push(req.body.task);
+var task = new TaskModel({
+  text : req.body.text
+});
+
+task.save(function(err, task){
   res.redirect('/');
+});
 });
 
 module.exports = router;
